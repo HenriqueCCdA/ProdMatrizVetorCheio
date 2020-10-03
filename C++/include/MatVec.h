@@ -25,7 +25,9 @@
       double getCoef(int i);
   
       void setCoef(int i, double a);
-      
+        
+      void dim(int &nLin);
+
       void dealloc(); 
   
       ~Vector();
@@ -46,6 +48,8 @@
   
       void setCoef(int i, int j, double a);
       
+      void dim(int &nLin, int &nCol);
+
       void dealloc();
   
       Vector& matVec(Vector& x, Vector& y, bool transp = false);

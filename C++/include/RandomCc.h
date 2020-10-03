@@ -7,6 +7,6 @@
   using std::default_random_engine;
   using std::uniform_real_distribution;
 
-  void makeMatrixAndVector(Matrix &a, Vector &x, int const n); 
+  void makeMatrixAndVector(Matrix &a, Vector &x); 
 
 #endif

@@ -1,9 +1,30 @@
 #include"../include/RandomCc.h"
 
-void makeMatrixAndVector(Matrix &a, Vector &x, int const n) 
+/********************************************************************* 
+ * Data de criacao    : 03/10/2020                                   *
+ * Data de modificaco : 00/00/0000                                   *
+ *-------------------------------------------------------------------*
+ * makeMatrixAndVector : gerando a matriz e vetor com numetros       *
+ * aleatorios de -100 e 100                                          * 
+ *-------------------------------------------------------------------* 
+ * Parametros de entrada:                                            * 
+ *-------------------------------------------------------------------* 
+ * a      - matriz a                                                 *
+ * x      - vetor                                                    * 
+ *-------------------------------------------------------------------* 
+ * Parametros de saida:                                              * 
+ *-------------------------------------------------------------------* 
+ *-------------------------------------------------------------------* 
+ * OBS:                                                              * 
+ *-------------------------------------------------------------------* 
+ *********************************************************************/
+void makeMatrixAndVector(Matrix &a, Vector &x) 
 {
   default_random_engine defEngine;
   uniform_real_distribution<double> unif(-100.0,100.0);
+  int n;  
+
+  x.dim(n);
 
   for (int i = 0; i < n; i++) {
     x.setCoef(i, unif(defEngine));
@@ -14,3 +35,4 @@ void makeMatrixAndVector(Matrix &a, Vector &x, int const n)
   }
 
 }
+/********************************************************************/
