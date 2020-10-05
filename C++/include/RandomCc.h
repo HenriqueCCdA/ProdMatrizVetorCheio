@@ -9,7 +9,7 @@
   using std::uniform_real_distribution;
   using std::vector;
 
-  void makeMatrixAndVector(Matrix &a, Vector &x); 
+  void makeMatrixAndVector(Array2D &a, Array &x); 
   void makeMatrixAndVector(vector <double> &a, vector<double> &x); 
 
 #endif

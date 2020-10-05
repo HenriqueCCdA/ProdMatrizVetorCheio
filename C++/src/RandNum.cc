@@ -18,7 +18,7 @@
  * OBS:                                                              * 
  *-------------------------------------------------------------------* 
  *********************************************************************/
-void makeMatrixAndVector(Matrix &a, Vector &x) 
+void makeMatrixAndVector(Array2D &a, Array &x) 
 {
   default_random_engine defEngine;
   uniform_real_distribution<double> unif(-100.0,100.0);

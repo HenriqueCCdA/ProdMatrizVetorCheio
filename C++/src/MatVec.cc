@@ -17,7 +17,7 @@
  * OBS:                                                              * 
  *-------------------------------------------------------------------*
  *********************************************************************/
-void Vector::alloc(const int nLin, string name) {
+void Array::alloc(const int nLin, string name) {
       
   this->nLin = nLin;
   this->name = name;
@@ -47,7 +47,7 @@ void Vector::alloc(const int nLin, string name) {
  * OBS:                                                              * 
  *-------------------------------------------------------------------* 
  *********************************************************************/
-double Vector::getCoef(int i) const{
+double Array::getCoef(int i) const{
   return this->coef[ i ];
 }
 /********************************************************************/
@@ -69,19 +69,19 @@ double Vector::getCoef(int i) const{
  * OBS:                                                              * 
  *-------------------------------------------------------------------* 
  *********************************************************************/
-void Vector::setCoef(int i, double a){
+void Array::setCoef(int i, double a){
   this->coef[ i ] = a;
 }
 /********************************************************************/
 
 /*********************************************************************/ 
-double* Vector::data(void) const{
+double* Array::data(void) const{
   return this->coef;
 }
 /********************************************************************/
 
 /*********************************************************************/ 
-ostream& operator<<(ostream& os, Vector &x){
+ostream& operator<<(ostream& os, Array &x){
   
   int n;
 
@@ -96,7 +96,7 @@ ostream& operator<<(ostream& os, Vector &x){
 /********************************************************************/
 
 /********************************************************************/
-void Vector::dealloc() {
+void Array::dealloc() {
   
   if(this->coef){
     delete [] this->coef;
@@ -106,14 +106,14 @@ void Vector::dealloc() {
 /********************************************************************/
 
 /********************************************************************/
-Vector::~Vector() {
+Array::~Array() {
   cout<< "chamando destrutor para "<< this->name << '.' << endl; 
   this->dealloc();
 }
 /********************************************************************/
 
 /********************************************************************/
-void Vector::dim(int &nLin) const{
+void Array::dim(int &nLin) const{
   
   nLin = this->nLin; 
   
@@ -121,7 +121,7 @@ void Vector::dim(int &nLin) const{
 /********************************************************************/
 
 /*********************************************************************/ 
-double& Vector::operator[](const int i) const{
+double& Array::operator[](const int i) const{
   return this->coef[i];
 }
 /********************************************************************/
@@ -144,7 +144,7 @@ double& Vector::operator[](const int i) const{
  * OBS:                                                              * 
  *-------------------------------------------------------------------* 
  *********************************************************************/
-void Matrix::alloc(const int nLin, const int nCol, string name) {
+void Array2D::alloc(const int nLin, const int nCol, string name) {
   
   this->nLin = nLin;
   this->nCol = nLin;
@@ -177,7 +177,7 @@ void Matrix::alloc(const int nLin, const int nCol, string name) {
  * OBS:                                                              * 
  *-------------------------------------------------------------------* 
  *********************************************************************/
-double Matrix::getCoef(int i, int j) const{
+double Array2D::getCoef(int i, int j) const{
   return this->coef[ i * this->nCol + j];
 }
 /********************************************************************/
@@ -200,7 +200,7 @@ double Matrix::getCoef(int i, int j) const{
  * OBS:                                                              * 
  *-------------------------------------------------------------------* 
  *********************************************************************/
-void Matrix::setCoef(int i, int j, double a){
+void Array2D::setCoef(int i, int j, double a){
   this->coef[ i * this->nCol + j] = a;
 }
 /********************************************************************/
@@ -224,7 +224,7 @@ void Matrix::setCoef(int i, int j, double a){
  * OBS:                                                              * 
  *-------------------------------------------------------------------* 
  *********************************************************************/
-Vector& Matrix::matVec(Vector& x, Vector& y, bool transp) const{
+Array& Array2D::matVec(Array& x, Array& y, bool transp) const{
 
   int nl = this->nLin;
   int nc = this->nCol;
@@ -258,7 +258,7 @@ Vector& Matrix::matVec(Vector& x, Vector& y, bool transp) const{
 /********************************************************************/
 
 /*********************************************************************/ 
-ostream& operator<<(ostream& os, Matrix &x){
+ostream& operator<<(ostream& os, Array2D &x){
   
   int nl, nc;
 
@@ -275,7 +275,7 @@ ostream& operator<<(ostream& os, Matrix &x){
 /********************************************************************/
 
 /********************************************************************/
-void Matrix::dim(int &nLin, int &nCol) const {
+void Array2D::dim(int &nLin, int &nCol) const {
   
   nLin = this->nLin;
   nCol = this->nCol; 

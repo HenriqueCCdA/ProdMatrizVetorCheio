@@ -19,8 +19,8 @@ int main(int argc, char *argv[]) {
   
   TimeCc timer;
   const int n = 3, nSamples = 10;
-  Matrix a;
-  Vector x, y;
+  Array2D a;
+  Array x, y;
   double time1, time2;
   bool transpose = true;
 

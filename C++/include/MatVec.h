@@ -12,7 +12,7 @@
   using std::ostream;
 
 
-  class Vector {
+  class Array {
   
     protected:
       double *coef = nullptr;
@@ -33,15 +33,15 @@
 
       double& operator[](const int i) const;
 
-      friend ostream& operator<<(ostream& os, Vector &x);
+      friend ostream& operator<<(ostream& os, Array &x);
 
       void dealloc(); 
   
-      ~Vector();
+      ~Array();
   };
   
   
-  class Matrix : public Vector{
+  class Array2D : public Array{
   
     private:
       int nCol; 
@@ -56,9 +56,9 @@
       
       void dim(int &nLin, int &nCol) const;
  
-      Vector& matVec(Vector& x, Vector& y, bool transp = false) const;
+      Array& matVec(Array& x, Array& y, bool transp = false) const;
       
-      friend ostream& operator<<(ostream& os, Matrix &x);
+      friend ostream& operator<<(ostream& os, Array2D &x);
   };
 
 
