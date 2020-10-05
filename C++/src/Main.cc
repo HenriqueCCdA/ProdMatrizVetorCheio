@@ -18,7 +18,7 @@ void matVec(vector <double> &a, vector<double> &x
 int main(int argc, char *argv[]) {
   
   TimeCc timer;
-  const int n = 3, nSamples = 10;
+  const int n = 10, nSamples = 10;
   Array2D a;
   Array x, y;
   double time1, time2;
@@ -46,9 +46,6 @@ int main(int argc, char *argv[]) {
   time1 /= static_cast <double> (nSamples); 
 /*...................................................................*/
 
-  cout << y << endl;
-  cout << a << endl;
-  
 /*... liberando a memoria*/
   y.dealloc();
   x.dealloc();
@@ -80,8 +77,6 @@ int main(int argc, char *argv[]) {
   }
   time2 /= static_cast <double> (nSamples); 
 /*...................................................................*/
-
-  cout << y1[0] << "," << y1[1] << "," << y1[2] << endl;
 
   cout << "Time2: " << time2 << endl;
 

@@ -1,7 +1,7 @@
 #include"../include/RandomCc.h"
 
 /********************************************************************* 
- * Data de criacao    : 03/10/2020                                   *
+ * Data de criacao    : 05/10/2020                                   *
  * Data de modificaco : 00/00/0000                                   *
  *-------------------------------------------------------------------*
  * makeMatrixAndVector : gerando a matriz e vetor com numetros       *
@@ -20,19 +20,23 @@
  *********************************************************************/
 void makeMatrixAndVector(Array2D &a, Array &x) 
 {
-  default_random_engine defEngine;
-  uniform_real_distribution<double> unif(-100.0,100.0);
+
+  unsigned int seed = 1;
+
+  default_random_engine defEngine(seed);
+  uniform_real_distribution<double> af(-100.0,100.0);
+  uniform_real_distribution<double> xf(-1.0,1.0);
   int n;  
 
   x.dim(n);
 
   for (int i = 0; i < n; i++) {
-//  x.setCoef(i, unif(defEngine));
-    x.setCoef(i, i);
+    x.setCoef(i, xf(defEngine));
+//  x.setCoef(i, i);
     for (int j = 0; j < n; j++) 
     {
-//    a.setCoef(i, j, unif(defEngine));
-      a.setCoef(i, j, 1 + i);
+      a.setCoef(i, j, af(defEngine));
+//    a.setCoef(i, j, 1 + i);
     }
   }
 
@@ -40,7 +44,7 @@ void makeMatrixAndVector(Array2D &a, Array &x)
 /********************************************************************/
 
 /********************************************************************* 
- * Data de criacao    : 03/10/2020                                   *
+ * Data de criacao    : 05/10/2020                                   *
  * Data de modificaco : 00/00/0000                                   *
  *-------------------------------------------------------------------*
  * makeMatrixAndVector : gerando a matriz e vetor com numetros       *
@@ -59,17 +63,19 @@ void makeMatrixAndVector(Array2D &a, Array &x)
  *********************************************************************/
 void makeMatrixAndVector(vector <double> &a, vector<double> &x) 
 {
-  default_random_engine defEngine;
-  uniform_real_distribution<double> unif(-100.0,100.0);
+  unsigned int seed = 1;
+  default_random_engine defEngine(seed);
+  uniform_real_distribution<double> af(-100.0,100.0);
+  uniform_real_distribution<double> xf(-1.0,1.0);
   int n = x.size();
 
   for (int i = 0; i < n; i++) {
-//  x[i] = unif(defEngine);
-    x[i] = i;
+    x[i] = xf(defEngine);
+//  x[i] = i;
     for (int j = 0; j < n; j++) 
     {
-//    a[i * n + j ] = unif(defEngine);
-      a[i * n + j ] = 1 + i;
+      a[i * n + j ] = af(defEngine);
+//    a[i * n + j ] = 1 + i;
     }
   }
 
