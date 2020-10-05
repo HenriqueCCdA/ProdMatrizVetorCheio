@@ -112,7 +112,7 @@ void matVecFull( double *RESTRICT a
 /*... */  
   if(!code){
     for(i=0;i<nLin;i++){
-      tmp = 0.0;
+      tmp = 0.e0;
       for(j=0;j<nCol;j++){
         tmp += MAT2D(i,j,a,nCol)*x[j];
       }
@@ -125,7 +125,7 @@ void matVecFull( double *RESTRICT a
   else{
     
     for(i=0;i<nLin;i++){
-      tmp = 0.0;
+      tmp = 0.e0;
       for(j=0;j<nCol;j++){
         tmp += MAT2D(j,i,a,nLin)*x[j];
       }

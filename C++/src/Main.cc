@@ -18,11 +18,11 @@ void matVec(vector <double> &a, vector<double> &x
 int main(int argc, char *argv[]) {
   
   TimeCc timer;
-  const int n = 10, nSamples = 10;
+  const int n = 30000, nSamples = 20;
   Array2D a;
   Array x, y;
   double time1, time2;
-  bool transpose = true;
+  bool transpose = false;
 
 /*... Versao com minha class*/
 

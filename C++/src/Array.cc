@@ -107,7 +107,7 @@ void Array::dealloc() {
 
 /********************************************************************/
 Array::~Array() {
-  cout<< "chamando destrutor para "<< this->name << '.' << endl; 
+//cout<< "chamando destrutor para "<< this->name << '.' << endl; 
   this->dealloc();
 }
 /********************************************************************/
@@ -230,6 +230,7 @@ Array& Array2D::matVec(Array& x, Array& y, bool transp) const{
   int nc = this->nCol;
   double tmp = 0.e0;
   double *a  = this->data();
+  
 
 /*... transposta*/
   if(transp)
@@ -237,7 +238,6 @@ Array& Array2D::matVec(Array& x, Array& y, bool transp) const{
       tmp = 0.e0;
       for (int j = 0; j < nl; j++) 
         tmp += a[j * nl + i] * x[j];
-
       y[i] = tmp;
     }
 /*...................................................................*/
