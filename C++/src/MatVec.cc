@@ -25,7 +25,7 @@ void Vector::alloc(const int nLin, string name) {
     this->coef = new double[nLin];
   }
   catch (bad_alloc E){
-    cout << "Não há memoria suficiente" << this->name << endl;
+    cout << "Nao ha memoria suficiente" << this->name << endl;
   }
 
 }
