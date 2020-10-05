@@ -74,6 +74,14 @@ void Vector::setCoef(int i, double a){
 }
 /********************************************************************/
 
+/*********************************************************************/ 
+double* Vector::data(void) const{
+  return this->coef;
+}
+/********************************************************************/
+
+
+
 /********************************************************************/
 void Vector::dealloc() {
   
@@ -179,6 +187,14 @@ double Matrix::getCoef(int i, int j) const{
 void Matrix::setCoef(int i, int j, double a){
   this->coef[ i * this->nCol + j] = a;
 }
+/********************************************************************/
+
+/*********************************************************************/ 
+double* Matrix::data(void) const{
+  return this->coef;
+}
+/********************************************************************/
+
 
 /********************************************************************/
 void Matrix::dealloc() {
@@ -211,19 +227,22 @@ void Matrix::dealloc() {
  * OBS:                                                              * 
  *-------------------------------------------------------------------* 
  *********************************************************************/
-Vector& Matrix::matVec(Vector& x, Vector& y, bool transp) {
+Vector& Matrix::matVec(Vector& x, Vector& y, bool transp) const{
 
   int nl = this->nLin;
   int nc = this->nCol;
   double tmp = 0.e0;
+  double *x1 = x.data();
+  double *y1 = y.data();
+  double *a  = this->data();
 
 /*... transposta*/
   if(transp)
     for (int i = 0; i < nc; i++) {
       tmp = 0.e0;
       for (int j = 0; j < nl; j++) 
-        tmp += this->getCoef(j, i) * x.getCoef(i);
-      y.setCoef(i, tmp);
+        tmp += a[j * nl + i] * x1[j];
+      y1[i] = tmp;
     }
 /*...................................................................*/
 
@@ -232,8 +251,8 @@ Vector& Matrix::matVec(Vector& x, Vector& y, bool transp) {
     for (int i = 0; i < nl; i++) {
       tmp = 0.e0;
       for (int j = 0; j < nc; j++) 
-        tmp += this->getCoef(i, j) * x.getCoef(i);
-      y.setCoef(i, tmp);
+        tmp += a[i * nl +  j] * x1[j];
+      y1[i] = tmp;
     }
 /*...................................................................*/ 
 

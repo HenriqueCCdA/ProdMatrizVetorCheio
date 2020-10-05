@@ -18,11 +18,11 @@ void matVec(vector <double> &a, vector<double> &x
 int main(int argc, char *argv[]) {
   
   TimeCc timer;
-  const int n = 6000, nSamples = 10;
+  const int n = 3, nSamples = 10;
   Matrix a;
   Vector x, y;
   double time1, time2;
-  bool transpose = true;
+  bool transpose = false;
 
 /*... Versao com minha class*/
 
@@ -116,7 +116,7 @@ void matVec(vector <double> &a, vector<double> &x
     for (int i = 0; i < n; i++) {
       tmp = 0.e0;
       for (int j = 0; j < n; j++) 
-        tmp += a[j * n + i] * x[i];
+        tmp += a[j * n + i] * x[j];
       y[i] = tmp;
     }
 /*...................................................................*/
@@ -126,7 +126,7 @@ void matVec(vector <double> &a, vector<double> &x
     for (int i = 0; i < n; i++) {
       tmp = 0.e0;
       for (int j = 0; j < n; j++) 
-        tmp += a[i * n + j] * x[i];
+        tmp += a[i * n + j] * x[j];
       y[i] = tmp;
     }
 /*...................................................................*/ 

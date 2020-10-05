@@ -27,10 +27,12 @@ void makeMatrixAndVector(Matrix &a, Vector &x)
   x.dim(n);
 
   for (int i = 0; i < n; i++) {
-    x.setCoef(i, unif(defEngine));
+//  x.setCoef(i, unif(defEngine));
+    x.setCoef(i, i);
     for (int j = 0; j < n; j++) 
     {
-      a.setCoef(i, j, unif(defEngine));
+//    a.setCoef(i, j, unif(defEngine));
+      a.setCoef(i, j, 1 + i);
     }
   }
 
@@ -62,10 +64,12 @@ void makeMatrixAndVector(vector <double> &a, vector<double> &x)
   int n = x.size();
 
   for (int i = 0; i < n; i++) {
-    x[i] = unif(defEngine);
+//  x[i] = unif(defEngine);
+    x[i] = i;
     for (int j = 0; j < n; j++) 
     {
-      a[i * n + j ] = unif(defEngine);
+//    a[i * n + j ] = unif(defEngine);
+      a[i * n + j ] = 1 + i;
     }
   }
 

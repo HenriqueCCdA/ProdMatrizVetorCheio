@@ -24,6 +24,8 @@
   
       double getCoef(int i) const;
   
+      double* data(void) const;
+
       void setCoef(int i, double a);
         
       void dim(int &nLin) const;
@@ -45,6 +47,8 @@
       void alloc(const int nLin, const int nCol, string name);
   
       double getCoef(int i, int j) const;
+
+      double* data(void) const;
   
       void setCoef(int i, int j, double a);
       
@@ -52,8 +56,9 @@
 
       void dealloc();
   
-      Vector& matVec(Vector& x, Vector& y, bool transp = false);
+      Vector& matVec(Vector& x, Vector& y, bool transp = false) const;
   
+
       ~Matrix(); 
   };
 
