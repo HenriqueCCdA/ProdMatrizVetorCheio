@@ -14,7 +14,7 @@
 
   class Vector {
   
-    private:
+    protected:
       double *coef = nullptr;
       int nLin;
       string name;
@@ -41,33 +41,24 @@
   };
   
   
-  class Matrix {
+  class Matrix : public Vector{
   
     private:
-      double *coef = nullptr;
-      int nLin, nCol; 
-      string name;
+      int nCol; 
+
     public:
   
       void alloc(const int nLin, const int nCol, string name);
   
       double getCoef(int i, int j) const;
-
-      double* data(void) const;
-  
+ 
       void setCoef(int i, int j, double a);
       
       void dim(int &nLin, int &nCol) const;
-
-      void dealloc();
-  
-      double& operator[](const int i) const;
-
+ 
       Vector& matVec(Vector& x, Vector& y, bool transp = false) const;
       
       friend ostream& operator<<(ostream& os, Matrix &x);
-
-      ~Matrix(); 
   };
 
 

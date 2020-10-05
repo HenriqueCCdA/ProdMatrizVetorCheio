@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
   Matrix a;
   Vector x, y;
   double time1, time2;
-  bool transpose = false;
+  bool transpose = true;
 
 /*... Versao com minha class*/
 
