@@ -47,7 +47,7 @@ void Vector::alloc(const int nLin, string name) {
  * OBS:                                                              * 
  *-------------------------------------------------------------------* 
  *********************************************************************/
-double Vector::getCoef(int i){
+double Vector::getCoef(int i) const{
   return this->coef[ i ];
 }
 /********************************************************************/
@@ -94,7 +94,7 @@ Vector::~Vector() {
 /********************************************************************/
 
 /********************************************************************/
-void Vector::dim(int &nLin) {
+void Vector::dim(int &nLin) const{
   
   nLin = this->nLin; 
   
@@ -153,7 +153,7 @@ void Matrix::alloc(const int nLin, const int nCol, string name) {
  * OBS:                                                              * 
  *-------------------------------------------------------------------* 
  *********************************************************************/
-double Matrix::getCoef(int i, int j){
+double Matrix::getCoef(int i, int j) const{
   return this->coef[ i * this->nCol + j];
 }
 /********************************************************************/
@@ -250,7 +250,7 @@ Matrix::~Matrix() {
 /********************************************************************/
 
 /********************************************************************/
-void Matrix::dim(int &nLin, int &nCol) {
+void Matrix::dim(int &nLin, int &nCol) const {
   
   nLin = this->nLin;
   nCol = this->nCol; 
