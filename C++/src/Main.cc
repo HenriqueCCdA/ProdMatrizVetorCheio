@@ -2,7 +2,7 @@
 #include<string>
 #include<chrono>
 #include<vector>
-#include"../include/MatVec.h"
+#include"../include/Array.h"
 #include"../include/HccaTimeCc.h"
 #include"../include/RandomCc.h"
 

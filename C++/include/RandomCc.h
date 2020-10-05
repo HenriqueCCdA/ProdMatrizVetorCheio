@@ -3,7 +3,7 @@
   #include<random>
   #include<array>
 
-  #include"MatVec.h"
+  #include"Array.h"
 
   using std::default_random_engine;
   using std::uniform_real_distribution;

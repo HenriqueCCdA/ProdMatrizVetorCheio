@@ -1,4 +1,4 @@
-#include"../include/MatVec.h"
+#include"../include/Array.h"
 
 /********************************************************************* 
  * Data de criacao    : 03/10/2020                                   *
