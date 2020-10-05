@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
 /*...*/
   makeMatrixAndVector(a, x);
 /*...................................................................*/
-  
+
 /*...*/    
   time1 = 0.e0;
   for(int i = 0; i< nSamples; i++){
@@ -46,6 +46,8 @@ int main(int argc, char *argv[]) {
   time1 /= static_cast <double> (nSamples); 
 /*...................................................................*/
 
+  cout << y << endl;
+  cout << a << endl;
   
 /*... liberando a memoria*/
   y.dealloc();
@@ -79,6 +81,7 @@ int main(int argc, char *argv[]) {
   time2 /= static_cast <double> (nSamples); 
 /*...................................................................*/
 
+  cout << y1[0] << "," << y1[1] << "," << y1[2] << endl;
 
   cout << "Time2: " << time2 << endl;
 

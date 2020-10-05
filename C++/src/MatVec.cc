@@ -80,7 +80,20 @@ double* Vector::data(void) const{
 }
 /********************************************************************/
 
+/*********************************************************************/ 
+ostream& operator<<(ostream& os, Vector &x){
+  
+  int n;
 
+  x.dim(n);
+
+  for (int i = 0; i < n; i++) {
+    os << x.name <<"[" << i << "]" << " = " << x.coef[i] << endl;
+  }
+
+  return os;
+}
+/********************************************************************/
 
 /********************************************************************/
 void Vector::dealloc() {
@@ -109,6 +122,11 @@ void Vector::dim(int &nLin) const{
 }
 /********************************************************************/
 
+/*********************************************************************/ 
+double& Vector::operator[](const int i) const{
+  return this->coef[i];
+}
+/********************************************************************/
 
 /********************************************************************* 
  * Data de criacao    : 03/10/2020                                   *
@@ -196,6 +214,13 @@ double* Matrix::data(void) const{
 /********************************************************************/
 
 
+/*********************************************************************/ 
+double& Matrix::operator[](const int i) const{
+  return this->coef[i];
+}
+/********************************************************************/
+
+
 /********************************************************************/
 void Matrix::dealloc() {
   
@@ -232,8 +257,6 @@ Vector& Matrix::matVec(Vector& x, Vector& y, bool transp) const{
   int nl = this->nLin;
   int nc = this->nCol;
   double tmp = 0.e0;
-  double *x1 = x.data();
-  double *y1 = y.data();
   double *a  = this->data();
 
 /*... transposta*/
@@ -241,8 +264,9 @@ Vector& Matrix::matVec(Vector& x, Vector& y, bool transp) const{
     for (int i = 0; i < nc; i++) {
       tmp = 0.e0;
       for (int j = 0; j < nl; j++) 
-        tmp += a[j * nl + i] * x1[j];
-      y1[i] = tmp;
+        tmp += a[j * nl + i] * x[j];
+
+      y[i] = tmp;
     }
 /*...................................................................*/
 
@@ -251,8 +275,8 @@ Vector& Matrix::matVec(Vector& x, Vector& y, bool transp) const{
     for (int i = 0; i < nl; i++) {
       tmp = 0.e0;
       for (int j = 0; j < nc; j++) 
-        tmp += a[i * nl +  j] * x1[j];
-      y1[i] = tmp;
+        tmp += a[i * nl +  j] * x[j];
+      y[i] = tmp;
     }
 /*...................................................................*/ 
 
@@ -260,6 +284,24 @@ Vector& Matrix::matVec(Vector& x, Vector& y, bool transp) const{
 
 }
 /********************************************************************/
+
+/*********************************************************************/ 
+ostream& operator<<(ostream& os, Matrix &x){
+  
+  int nl, nc;
+
+  x.dim(nl, nc);
+
+  for (int i = 0; i < nl; i++)
+    for (int j = 0; j < nc; j++)
+      os << x.name <<"[" << i << "]" << "[" << i << "]" 
+         << " = " << x.coef[i * nl + j] << endl;
+  
+
+  return os;
+}
+/********************************************************************/
+
 
 /********************************************************************/
 Matrix::~Matrix() {

@@ -9,6 +9,7 @@
   using std::endl;
   using std::bad_alloc;
   using std::string;
+  using std::ostream;
 
 
   class Vector {
@@ -29,6 +30,10 @@
       void setCoef(int i, double a);
         
       void dim(int &nLin) const;
+
+      double& operator[](const int i) const;
+
+      friend ostream& operator<<(ostream& os, Vector &x);
 
       void dealloc(); 
   
@@ -56,8 +61,11 @@
 
       void dealloc();
   
+      double& operator[](const int i) const;
+
       Vector& matVec(Vector& x, Vector& y, bool transp = false) const;
-  
+      
+      friend ostream& operator<<(ostream& os, Matrix &x);
 
       ~Matrix(); 
   };
