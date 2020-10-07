@@ -44,7 +44,7 @@ long loadStore(int const nLin,int const nCol){
  *-------------------------------------------------------------------* 
  *********************************************************************/
 long flopMatVecFull(int const nLin,int const nCol){
-  return nLin*(2*nCol-1);
+  return (long) nLin*((long) (2*nCol-1));
 }
 /*********************************************************************/ 
 

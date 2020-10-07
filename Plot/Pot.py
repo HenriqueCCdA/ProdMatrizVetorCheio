@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 df_cpp = pd.read_csv("../Data/tempos_cpp.csv")
 df_vector_cpp = pd.read_csv("../Data/tempos_cpp_vector.csv")
+df_c = pd.read_csv("../Data/tempos_c.csv")
 
 # tempo
 fig = plt.figure(figsize = (15, 6))
@@ -12,6 +13,7 @@ ax = fig.add_axes([0, 0, 1, 1])
 
 ax.plot(df_cpp['size'], df_cpp['time'], color = 'b', label = 'C++')
 ax.plot(df_vector_cpp['size'], df_cpp['time'], color = 'g', label = 'STL-C++')
+ax.plot(df_c['size'], df_c['time'], color = 'r', label = 'C')
 ax.legend(fontsize = 15)
 ax.grid(True)
 ax.set_xlabel("Numero de equações", fontsize = 15)
@@ -25,6 +27,7 @@ ax = fig.add_axes([0, 0, 1, 1])
 
 ax.plot(df_cpp['size'], df_cpp['flop'], color = 'b', label = 'C++')
 ax.plot(df_vector_cpp['size'], df_cpp['flop'], color = 'g', label = 'STL-C++')
+ax.plot(df_c['size'], df_c['flop'], color = 'r', label = 'C')
 ax.legend(fontsize = 15)
 ax.grid(True)
 ax.set_xlabel("Numero de equações", fontsize = 15)
@@ -40,6 +43,7 @@ ax = fig.add_axes([0, 0, 1, 1])
 
 ax.plot(df_cpp['size'], df_cpp['bandwith'], color = 'b', label = 'C++')
 ax.plot(df_vector_cpp['size'], df_cpp['bandwith'], color = 'g', label = 'STL-C++')
+ax.plot(df_c['size'], df_c['bandwith'], color = 'r', label = 'C')
 ax.legend(fontsize = 15)
 ax.grid(True)
 ax.set_xlabel("Numero de equações", fontsize = 15)

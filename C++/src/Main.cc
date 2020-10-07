@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
   TimeCc timer;
   const int nSamples = 10;
   int n;
-  const int size[] = {  100,  500,  900, 1300, 1700, 2100, 2500,
+  const int size[] = {  200,  500,  900, 1300, 1700, 2100, 2500,
                        2900, 3300, 3700, 4100, 4500, 4900, 5300,
                        5700, 6100, 6500, 6900, 7300, 7700, 8100,
                        8500, 8900, 9300, 9700,10100,10500,10900,
@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
 
 /*...*/
     flop = a.flopMatVecFull();
-    ls = a.loadStore();
+    ls = 8.0*a.loadStore();
 /*...................................................................*/
 
 /*... liberando a memoria*/
