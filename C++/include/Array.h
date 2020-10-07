@@ -58,6 +58,10 @@
  
       Array& matVec(Array& x, Array& y, bool transp = false) const;
       
+      long loadStore(void) const;
+
+      long flopMatVecFull(void) const;
+
       friend ostream& operator<<(ostream& os, Array2D &x);
   };
 

@@ -46,13 +46,23 @@ int main(int argc, char *argv[]) {
   time1 /= static_cast <double> (nSamples); 
 /*...................................................................*/
 
+/*...*/
+  double flop = a.flopMatVecFull();
+  double ls = a.loadStore();
+  double gm = 1.e+9;
+/*...................................................................*/
+
 /*... liberando a memoria*/
   y.dealloc();
   x.dealloc();
   a.dealloc();
 /*...................................................................*/
 
-  cout << "Time1: " << time1 << endl;
+/*...*/
+  cout << "Time1    = " << time1   << endl;
+  cout << "flops    = " << (flop/time1)/gm << "GFlops" << endl;
+  cout << "bandwith = " << (ls/time1)/gm   << "GBytes/s" << endl;
+/*...................................................................*/
 
 /*... Versao com arrat*/
   vector<double> a1;
@@ -78,11 +88,17 @@ int main(int argc, char *argv[]) {
   time2 /= static_cast <double> (nSamples); 
 /*...................................................................*/
 
-  cout << "Time2: " << time2 << endl;
+/*...*/
+  cout << endl;
+  cout << "Time2    = " << time2   << endl;
+  cout << "flops    = " << (flop/time2)/gm  << " GFlops"   << endl;
+  cout << "bandwith = " << (ls/time2)/gm    << " GBytes/s" << endl;
+/*...................................................................*/
 
   return 0;
 
 }
+/********************************************************************/
 
 /********************************************************************* 
  * Data de criacao    : 03/10/2020                                   *
