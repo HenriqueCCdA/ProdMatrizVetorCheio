@@ -21,9 +21,17 @@ void matVec(vector <double> &a, vector<double> &x
 int main(int argc, char *argv[]) {
   
   TimeCc timer;
-  const int nSamples = 20;
+  const int nSamples = 10;
   int n;
-  const int size[] = {160, 320, 640, 1280, 2560, 5120, 10240};
+  const int size[] = {  100,  500,  900, 1300, 1700, 2100, 2500,
+                       2900, 3300, 3700, 4100, 4500, 4900, 5300,
+                       5700, 6100, 6500, 6900, 7300, 7700, 8100,
+                       8500, 8900, 9300, 9700,10100,10500,10900,
+                      11300,11700,12100,12500,12900,13300,13700,
+                      14100,14500,14900,15300,15700,16100,16500,
+                      16900,17300,17700,18100,18300,18500,19300,
+                      19700,20500,20900,21300,22100,22500,23000};
+  const int nn = 56;
   Array2D a;
   Array x, y;
   double time1, time2;
@@ -32,7 +40,6 @@ int main(int argc, char *argv[]) {
   const double gm = 1.e+9;
 
 /*... abrindo arquivo para escrita*/
-
 
 /*... Versao com minha class*/
   ofstream fOut;
@@ -45,7 +52,7 @@ int main(int argc, char *argv[]) {
 /*...................................................................*/
 
 /*...*/
-  for(int j = 0; j < 7; j++){
+  for(int j = 0; j < nn; j++){
     n = size[j];
 /*... alocando memoria*/
     a.alloc(n, n, "a");
@@ -111,7 +118,7 @@ int main(int argc, char *argv[]) {
 
 
 /*...*/
-  for(int j = 0; j < 11; j++){
+  for(int j = 0; j < nn; j++){
     n = size[j];
   
 /*...*/
@@ -139,6 +146,11 @@ int main(int argc, char *argv[]) {
     cout << "Time2    = " << time2   << endl;
     cout << "flops    = " << (flop/time2)/gm  << " GFlops"   << endl;
     cout << "bandwith = " << (ls/time2)/gm    << " GBytes/s" << endl;
+/*...................................................................*/
+
+/*...*/
+    fOut << n <<","<< time2 <<","<<(flop/time2)/gm<<","<<(ls/time2)/gm
+         << endl;
 /*...................................................................*/
   }
 /*...................................................................*/
