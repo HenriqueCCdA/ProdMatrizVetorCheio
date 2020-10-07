@@ -26,6 +26,7 @@ void Array::alloc(const int nLin, string name) {
   }
   catch (bad_alloc E){
     cout << "Nao ha memoria suficiente" << this->name << endl;
+    exit(-1);
   }
 
 }
