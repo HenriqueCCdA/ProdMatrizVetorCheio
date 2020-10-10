@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
   double *a, *x, *y;
   double time0, time, gm = 1.e+9;
   double flop, ls;
-  const int size[] = {  200,  500, 900 , 1300, 1700, 2100, 2500,
+  const int size[] = {             900 , 1300, 1700, 2100, 2500,
                        2900, 3300, 3700, 4100, 4500, 4900, 5300,
                        5700, 6100, 6500, 6900, 7300, 7700, 8100,
                        8500, 8900, 9300, 9700,10100,10500,10900,
@@ -22,8 +22,8 @@ int main(int argc, char *argv[]) {
                       14100,14500,14900,15300,15700,16100,16500,
                       16900,17300,17700,18100,18300,18500,19300,
                       19700,20500,20900,21300,22100,22500,23000};
-  const int nn = 56;
-  FILE *fileOut = NULL;
+  const int nn = 54;
+  FILE *fileOut = NULL; 
 
 /*... abrindo arquivo*/
   fileOut = fopen("tempos_c.csv", "w");

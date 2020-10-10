@@ -275,18 +275,21 @@ Array& Array2D::matVec(Array& x, Array& y, bool transp) const{
 
   int nl = this->nLin;
   int nc = this->nCol;
-  double tmp = 0.e0;
+  double tmp = 0.e0, xi;
   double *a  = this->data();
   
 
 /*... transposta*/
-  if(transp)
+  if(transp){
+    for(int j = 0; j < nl; j++)
+      y[j] = 0.e0;
+
     for (int i = 0; i < nc; i++) {
-      tmp = 0.e0;
+      xi = x[i];
       for (int j = 0; j < nl; j++) 
-        tmp += a[j * nl + i] * x[j];
-      y[i] = tmp;
+        y[j] += a[i * nl + j] * xi;      
     }
+  }
 /*...................................................................*/
 
 /*...*/

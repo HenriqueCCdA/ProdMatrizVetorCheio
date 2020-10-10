@@ -83,7 +83,7 @@ double dot(double *RESTRICT x1, double *RESTRICT x2, int const n)
 
 /********************************************************************* 
  * Data de criacao    : 24/09/2020                                   *
- * Data de modificaco : 02/10/2020                                   *
+ * Data de modificaco : 10/10/2020                                   *
  *-------------------------------------------------------------------*
  * MATVECFULL : operacao matriz vetor para matriz cheias             * 
  *-------------------------------------------------------------------* 
@@ -107,7 +107,7 @@ void matVecFull( double *RESTRICT a
                , short const code)
 {
   int i,j;
-  double tmp;
+  double tmp, xi;
 
 /*... */  
   if(!code){
@@ -123,13 +123,15 @@ void matVecFull( double *RESTRICT a
 
 /*... matriz transposta*/  
   else{
-    
-    for(i=0;i<nLin;i++){
-      tmp = 0.e0;
-      for(j=0;j<nCol;j++){
-        tmp += MAT2D(j,i,a,nLin)*x[j];
+    for(j=0;j<nCol;j++)
+      y[j] = 0.e0;
+
+    for(i=0;i<nCol;i++){
+      xi = x[i];
+      for(j=0;j<nLin;j++){
+        y[j] += MAT2D(i,j,a,nLin)*xi;
       }
-      y[i] = tmp;
+  
     }
 
   }
