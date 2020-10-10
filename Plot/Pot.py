@@ -45,36 +45,43 @@ print(df_stl_cpp.tail())
 # tempo
 
 fig = plt.figure(figsize = (15, 6))
+#fig = plt.figure()
 
 ax = fig.add_axes([0, 0, 1, 1])
 
-ax.plot(df_cpp['size'], df_cpp['media_time'], color = 'b', label = 'C++', marker = 'o')
+ax.plot(df_cpp['size'], df_cpp['media_time'], color = 'b', label = 'C++', marker = 'x')
 ax.plot(df_stl_cpp['size'], df_cpp['media_time'], color = 'g', label = 'STL-C++', marker = 'v')
 ax.plot(df_c['size'], df_c['media_time'], color = 'r', label = 'C', marker = '^')
 ax.plot(df_f['size'], df_f['media_time'], color = 'k', label = 'Fortran', marker = 's')
-ax.plot(df_python['size'], df_python['media_time'], color = 'magenta', label = 'Python-mkl', marker = 'x')
+ax.plot(df_python['size'], df_python['media_time'], color = 'magenta', label = 'Python-mkl', marker = 'o')
 ax.legend(fontsize = 15)
 ax.grid(True)
 ax.set_xlabel("Numero de equações", fontsize = 15)
-ax.set_ylabel("Tempo medio (s)", fontsize = 15)
-ax.set_xlim(200, 23000)
+ax.set_ylabel("Tempo (s)", fontsize = 15)
+ax.set_xlim(900, 23000)
+
+fig.savefig("../Fig/tempos.png", dpi = 300, bbox_inches='tight', pad_inches = 0)
+plt.close(fig) 
 
 # flops
 fig = plt.figure(figsize = (15, 6))
 
 ax = fig.add_axes([0, 0, 1, 1])
 
-ax.plot(df_cpp['size'], df_cpp['media_fp'], color = 'b', label = 'C++', marker = 'o')
+ax.plot(df_cpp['size'], df_cpp['media_fp'], color = 'b', label = 'C++', marker = 'x')
 ax.plot(df_stl_cpp['size'], df_cpp['media_fp'], color = 'g', label = 'STL-C++', marker = 'v')
 ax.plot(df_c['size'], df_c['media_fp'], color = 'r', label = 'C', marker = '^')
 ax.plot(df_f['size'], df_f['media_fp'], color = 'k', label = 'Fortran', marker = 's')
-ax.plot(df_python['size'], df_python['media_fp'], color = 'magenta', label = 'Python-mkl', marker = 'x')
+ax.plot(df_python['size'], df_python['media_fp'], color = 'magenta', label = 'Python-mkl', marker = 'o')
 ax.legend(fontsize = 15)
 ax.grid(True)
 ax.set_xlabel("Numero de equações", fontsize = 15)
 ax.set_ylabel("GFlops", fontsize = 15)
-#x.set_xlim(0, 23000)
+ax.set_ylim(0, 6)
+ax.set_xlim(900, 23000)
 
+fig.savefig("../Fig/flops.png", dpi = 300, bbox_inches='tight', pad_inches = 0)
+plt.close(fig) 
 
 # loadsores
 #fig = plt.figure(figsize = (15, 6))
