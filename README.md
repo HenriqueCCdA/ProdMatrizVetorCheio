@@ -3,8 +3,8 @@
 Repositório com a implementação do produto matriz vetor para matriz cheia. 
 Todas as versões são single core. O numpy utilizou a biblioteca mkl. 
 
-As versões C, C++ e Fortran foram compiladas com o compilador intel e otimização
-O3 e fp-model = fast.
+As versões C, C++ e Fortran foram compiladas com o compilador intel. Os paramentros de compilação foram -O3
+e fp-model = fast.
 
 ## Linguagens
 
